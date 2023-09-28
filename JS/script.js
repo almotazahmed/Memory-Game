@@ -86,6 +86,9 @@ class MemoryCardGame {
   // Method to add click event listeners to image boxes.
   addClickListeners(imageBoxes) {
     imageBoxes.forEach((imgBox) => {
+      imgBox.classList.remove("has-match");
+    });
+    imageBoxes.forEach((imgBox) => {
       imgBox.addEventListener("click", (ev) => {
         this.handleCardClick(imgBox);
       });
@@ -158,13 +161,14 @@ class MemoryCardGame {
   }
 
   startTime(time) {
+    let durations = time;
     let minutes, seconds;
 
     // Set up an interval to update the timer every 1000 milliseconds (1 second)
     this.timeIntervalMethod = setInterval(() => {
       // Calculate minutes and seconds from the remaining time
-      minutes = parseInt(time / 60);
-      seconds = parseInt(time % 60);
+      minutes = parseInt(durations / 60);
+      seconds = parseInt(durations % 60);
 
       // Ensure minutes and seconds are displayed with leading zeros if they are less than 10
       minutes = minutes < 10 ? `0${minutes}` : minutes;
@@ -174,7 +178,7 @@ class MemoryCardGame {
       this.timeBox.textContent = `${minutes}:${seconds}`;
 
       // Check if time has reached zero (time's up)
-      if (--time < 0) {
+      if (--durations < 0) {
         this.checkForWin(); // Call a function to check if the player has won
       }
     }, 1000); // The interval runs every 1000 milliseconds (1 second)
