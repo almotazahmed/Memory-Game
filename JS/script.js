@@ -29,9 +29,9 @@ class MemoryCardGame {
   // Method to start the game.
   startGame() {
     this.hideOverlay();
+    this.clearGameBoard();
     this.resetGameVariables();
     this.updateRoundCounter();
-    this.clearGameBoard();
     let shuffledImageBoxes = this.shuffleImageBoxes();
 
     this.addClickListeners(shuffledImageBoxes);
