@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
       gameBody,
       imageBoxes,
       nameBox,
-      tempsNumberBox,
+      attemptsNumberBox,
       timeBox,
       wrongTriesBox,
       time
@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
       this.gameBody = gameBody;
       this.imageBoxes = imageBoxes;
       this.nameBox = nameBox;
-      this.tempsNumberBox = tempsNumberBox;
+      this.attemptsNumberBox = attemptsNumberBox;
       this.timeBox = timeBox;
       this.wrongTriesBox = wrongTriesBox;
       this.time = time;
@@ -114,7 +114,7 @@ window.addEventListener("load", function () {
       window.sessionStorage.setItem("attempts-number", ++this.numberOfAttempts);
       // Display the player name and attempts number.
       this.nameBox.textContent = this.playerName;
-      this.tempsNumberBox.textContent = this.numberOfAttempts;
+      this.attemptsNumberBox.textContent = this.numberOfAttempts;
       this.wrongTriesBox.textContent = this.wrongTriesNum;
       this.timeBox.textContent = `00:00`;
     }
@@ -386,7 +386,7 @@ window.addEventListener("load", function () {
   let imageBoxes = document.querySelectorAll(".game-body .img-box");
   let timeBox = document.querySelector(".time");
   let nameBox = document.querySelector(".name .user-name");
-  let tempsNumberBox = document.querySelector(".name .temps-number");
+  let attemptsNumberBox = document.querySelector(".name .attempts-number");
   let wrongTriesBox = document.querySelector(
     ".wrong-tries .wrong-tries-number"
   );
@@ -396,7 +396,7 @@ window.addEventListener("load", function () {
     gameBody,
     imageBoxes,
     nameBox,
-    tempsNumberBox,
+    attemptsNumberBox,
     timeBox,
     wrongTriesBox,
     time

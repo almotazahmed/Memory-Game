@@ -83,7 +83,7 @@ header {
   }
 }
 header .name .user-name,
-header .name .temps-number,
+header .name .attempts-number,
 header .wrong-tries .wrong-tries-number,
 header .time {
   font-weight: 700;
