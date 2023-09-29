@@ -107,7 +107,6 @@ header .time {
   border: 5px solid var(--blue-color);
   transition: transform 0.3s;
   transform-style: preserve-3d;
-  /* cursor: pointer; */
   border-radius: 4px;
 }
 
