@@ -94,7 +94,7 @@ window.addEventListener("load", function () {
 
       this.addClickListeners();
 
-      this.stopClickingForDuration(6100);
+      this.stopClickingForDuration(6600);
 
       this.delayedStartGame();
     }
@@ -156,7 +156,7 @@ window.addEventListener("load", function () {
       // If Theres Two Selected Blocks
       if (allFlippedBlocks.length === 2) {
         // Stop Clicking Function
-        this.stopClickingForDuration(this.flippingTime + 300);
+        this.stopClickingForDuration(this.flippingTime + 301);
 
         // Check Matched Block Function
         this.checkMatchedBlocks(allFlippedBlocks[0], allFlippedBlocks[1]);
