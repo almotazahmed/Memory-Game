@@ -226,8 +226,8 @@ window.addEventListener("load", function () {
             let currentBox = imageBoxes[currentIndex];
             setTimeout(() => {
               currentBox.classList.add("is-flipped");
-              startingSound.pause();
-              startingSound.currentTime = 0;
+              // startingSound.pause();
+              // startingSound.currentTime = 0;
               startingSound.play();
               currentIndex++;
               flipNextBox();
