@@ -227,7 +227,7 @@ window.addEventListener("load", function () {
             setTimeout(() => {
               currentBox.classList.add("is-flipped");
               // startingSound.pause();
-              // startingSound.currentTime = 0;
+              startingSound.currentTime = 0;
               startingSound.play();
               currentIndex++;
               flipNextBox();
@@ -390,7 +390,7 @@ window.addEventListener("load", function () {
   let wrongTriesBox = document.querySelector(
     ".wrong-tries .wrong-tries-number"
   );
-  let time = 100;
+  let time = 90;
 
   new MemoryCardGame(
     gameBody,
