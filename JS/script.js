@@ -414,7 +414,7 @@ window.addEventListener("load", function () {
   let wrongTriesBox = document.querySelector(
     ".wrong-tries .wrong-tries-number"
   );
-  let time = 1;
+  let time = 90;
 
   new MemoryCardGame(
     gameBody,
