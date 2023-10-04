@@ -31,15 +31,51 @@ window.addEventListener("load", function () {
         window.sessionStorage.getItem("attempts-number") &&
         window.sessionStorage.getItem("player-name")
       ) {
-        this.finishPlayPopup(false);
+        // If session data exists, prompt if continue with the same name or start new game.
+        this.dataExistPopup();
       } else {
         // If no session data exists, prompt the user to start a new game.
-        this.startPopup();
+        this.newStartPopup();
       }
     }
 
+    dataExistPopup() {
+      // Create the main popup div
+      let mainPopup = this.createDivWithClass("prompt-user-popup");
+
+      // Create a button to replay with the same name
+      let startWithSameNameBtn = this.createButtonWithClass(
+        "Play With Same Name",
+        "play-with-same-name"
+      );
+
+      // Create a button to start a new game with a different name
+      let startWithNewNameBtn = this.createButtonWithClass(
+        "Play With New Name",
+        "play-with-new-name"
+      );
+
+      // Add click event listeners to the replay and new play buttons
+      startWithSameNameBtn.addEventListener("click", () => {
+        mainPopup.remove();
+        this.startGame();
+      });
+
+      startWithNewNameBtn.addEventListener("click", () => {
+        mainPopup.remove();
+        this.newStartPopup();
+      });
+
+      // Append the buttons to main popup
+      mainPopup.appendChild(startWithSameNameBtn);
+      mainPopup.appendChild(startWithNewNameBtn);
+
+      // Append the main popup to the document body
+      document.body.appendChild(mainPopup);
+    }
+
     // This method is called to display a popup for entering the player's name and starting the game.
-    startPopup() {
+    newStartPopup() {
       window.sessionStorage.clear(); // Clear any existing session storage data.
 
       // Create the main popup div
@@ -311,32 +347,20 @@ window.addEventListener("load", function () {
       // Create a div for buttons
       let btnDiv = this.createDivWithClass("btnDiv");
 
-      // Create a button to replay with the same name
-      let startWithSameNameBtn = this.createButtonWithClass(
-        "Replay",
-        "start-with-same-name"
-      );
-
-      // Create a button to start a new game with a different name
-      let startWithNewNameBtn = this.createButtonWithClass(
-        "New Play",
-        "start-with-new-name"
+      // Create a button to prompt the user to play new game
+      let anotherAttemptBtn = this.createButtonWithClass(
+        "Another Attempt",
+        "another-attempt-btn"
       );
 
       // Add click event listeners to the replay and new play buttons
-      startWithSameNameBtn.addEventListener("click", () => {
+      anotherAttemptBtn.addEventListener("click", () => {
         mainPopup.remove();
-        this.startGame();
-      });
-
-      startWithNewNameBtn.addEventListener("click", () => {
-        mainPopup.remove();
-        this.startPopup();
+        window.location.reload();
       });
 
       // Append the buttons to the button div
-      btnDiv.appendChild(startWithSameNameBtn);
-      btnDiv.appendChild(startWithNewNameBtn);
+      btnDiv.appendChild(anotherAttemptBtn);
 
       // Append the message div and button div to the main popup
       mainPopup.appendChild(stateDiv);
@@ -390,7 +414,7 @@ window.addEventListener("load", function () {
   let wrongTriesBox = document.querySelector(
     ".wrong-tries .wrong-tries-number"
   );
-  let time = 90;
+  let time = 1;
 
   new MemoryCardGame(
     gameBody,

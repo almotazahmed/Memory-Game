@@ -157,7 +157,8 @@ header .time {
 }
 
 .start-popup,
-.finish-popup {
+.finish-popup,
+.prompt-user-popup {
   position: absolute;
   z-index: 5;
   width: 400px;
@@ -189,12 +190,15 @@ header .time {
 }
 
 .start-popup .input-div,
-.finish-popup .btnDiv {
+.finish-popup .btnDiv,
+.prompt-user-popup {
   display: flex;
   justify-content: space-between;
   gap: 15px;
 }
-
+.finish-popup .btnDiv {
+  justify-content: center;
+}
 .start-popup .input-div input[type="text"] {
   border: none;
   outline: none;
@@ -209,12 +213,13 @@ header .time {
 }
 
 .start-popup .input-div button,
-.finish-popup .btnDiv button {
+.finish-popup .btnDiv button,
+.prompt-user-popup button {
   border: none;
   outline: none;
   caret-color: var(--blue-color);
   border-radius: 4px;
-  padding: 6px;
+  padding: 8px;
   font-size: 14px;
   color: var(--blue-color);
   font-weight: 600;
@@ -222,6 +227,16 @@ header .time {
   background-color: white;
   cursor: pointer;
   width: 100px;
+}
+.start-popup .input-div button:hover,
+.finish-popup .btnDiv button:hover,
+.prompt-user-popup button:hover {
+  background-color: rgb(246, 246, 246);
+}
+
+.finish-popup .btnDiv button,
+.prompt-user-popup button {
+  width: fit-content;
 }
 
 @media (max-width: 400px) {
